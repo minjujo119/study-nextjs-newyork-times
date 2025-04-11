@@ -1,1 +1,1 @@
-# study-nextjs-newyork-times
+## NextJS로 뉴욕타임지 웹 만들어보기
