@@ -1,0 +1,32 @@
+$themeColor: rgb(73, 54, 119);
+
+$themeColorShadow40: rgba(73, 54, 119, 0.4);
+$themeColorShadow30: rgba(73, 54, 119, 0.3);
+$themeColorShadow20: rgba(73, 54, 119, 0.2);
+$themeColorShadow10: rgba(73, 54, 119, 0.1);
+$titleColor:#58067e;
+$disabledColor: #b0b0b0;
+
+
+@mixin btn-default($size) {
+  box-shadow: calc($size/20) calc($size/20) calc($size/10) $themeColorShadow40,
+    calc($size/(-20)) calc($size/(-20)) calc($size/10) #fff;
+}
+
+@mixin btn-hover($size) {
+  color: $titleColor;
+  box-shadow: calc($size/40) calc($size/40) calc($size/20) $themeColorShadow40,
+    calc($size/(-40)) calc($size/(-40)) calc($size/20) #fff;
+}
+
+@mixin btn-active($size) {
+  box-shadow: inset $size $size $size * 2 $themeColorShadow40,
+    inset $size * (-1) $size * (-1) $size * 2 #ffffff;
+}
+
+@mixin btn-disabled {
+  box-shadow: none;
+  border:1px solid $disabledColor;
+  color: $disabledColor;
+  cursor:default;
+}

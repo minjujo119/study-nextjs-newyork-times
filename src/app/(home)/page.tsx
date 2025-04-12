@@ -1,6 +1,10 @@
-import styles from "./page.module.scss";
-import { getCategories } from "../../utils/api";
-import Category from "../../components/Category";
+import styles from "@/src/styles/page-home.module.scss";
+import { getCategories } from "@/src/utils/api";
+import CategoryBtn from "@/src/components/CategoryBtn";
+
+export const metadata = {
+  title: "Home",
+};
 
 export default async function HomePage() {
   const categories: ICategory[] = await getCategories();
@@ -11,7 +15,7 @@ export default async function HomePage() {
       <section className={styles.section}>
         <div className={styles.category_list}>
           {categories?.map((category) => (
-            <Category 
+            <CategoryBtn 
               key={category.list_name_encoded}
               encoded={category.list_name_encoded}
               name={category.display_name}

@@ -1,0 +1,45 @@
+.book {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .img {
+    width: 100%;
+    object-fit: cover;
+  }
+  .title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 12px;
+  }
+  .author {
+    margin-top: 4px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #555;
+  }
+  .buy_link {
+    display: inline-block;
+    width: 100%;
+    margin-top: 12px;
+    padding: 8px;
+    line-height: 1;
+    font-size: 14px;
+    border-radius: 6px;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: $themeColorShadow10;
+    @include btn-default(40px);
+
+    &:hover {
+      @include btn-hover(40px);
+    }
+    &:active{
+      @include btn-active(2px);
+    }
+
+    &[data-disabled=true] {
+      @include btn-disabled;
+    }
+
+  }
+}

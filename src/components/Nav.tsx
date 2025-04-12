@@ -1,8 +1,7 @@
 "use client";
 import Link from "next/link";
-import styles from "../styles/nav.module.scss";
+import styles from "@/src/styles/nav.module.scss";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
 
 export default function Nav() {
   const path = usePathname();

@@ -1,4 +1,8 @@
-import styles from "./page.module.scss";
+import styles from "@/src/styles/page-about.module.scss";
+
+export const metadata = {
+  title: "About",
+};
 
 export default function AboutPage() {
   return (

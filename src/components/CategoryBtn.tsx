@@ -1,15 +1,15 @@
 "use client";
 import Link from "next/link";
-import styles from "../styles/category.module.scss"
+import styles from "@/src/styles/category.module.scss"
 
-export default function Category({ encoded, name }: IProps) {
+export default function CategoryBtn({ encoded, name }: IProps) {
   return (
     <Link
+      className={styles.category}
       prefetch
       href={`list/${encoded}`}
-      className={styles.category}
     >
-      {name} 👉🏻
+      {name}
     </Link>
   );
 }

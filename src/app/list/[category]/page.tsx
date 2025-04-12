@@ -1,32 +1,42 @@
 import { getBooks } from "@/src/utils/api";
-import styles from "./page.module.scss";
+import styles from "@/src/styles/page-category.module.scss";
+import Book from "@/src/components/Book";
 
-export default async function DetailPage({ params: { id } }: IParams) {
-  const categoryInfo: IcategoryInfo = await getBooks(id);
-  const books = categoryInfo.books;
+// Dynamic Metadata
+export async function generateMetadata({ params }: IParams) {
+  const { category } = await params;
+  return {
+    title: category,
+  };
+}
+
+export default async function ListPage({ params }: IParams) {
+  const { category } = await params;
+  const categoryInfo: IcategoryInfo = await getBooks(category);
+  const bookList = categoryInfo.books;
 
   return (
     <div>
       <h1 className={styles.title}>{categoryInfo.display_name}</h1>
       <section className={styles.section}>
-        
-        {books.map((book) => (
-          <div>
-            <img src={`${book.book_image}`} alt={book.title} />
-            <h2>{book.title}</h2>
-            <h3>{book.author}</h3>
-            <a href={book.amazon_product_url}>Buy Now</a>
-          </div>
-        ))}
+        <div className={styles.book_list}>
+          {bookList.map((book) => (
+            <Book
+              key={book?.primary_isbn13}
+              title={book?.title}
+              image={book?.book_image}
+              author={book?.author}
+              url={book?.amazon_product_url}
+              // url={book?.amazon_product_url !== null ? book.amazon_product_url : "not found"}
+            />
+          ))}
+        </div>
       </section>
     </div>
   );
 }
 
-// interface
-interface IParams {
-  params: { id: string };
-}
+// Interfaces
 interface Ibooks {
   rank: number;
   rank_last_week: number;
@@ -68,4 +78,7 @@ interface IcategoryInfo {
   updated: string;
   books: Ibooks[];
   corrections: [];
+}
+interface IParams {
+  params: Promise<{ category: string }>;
 }
