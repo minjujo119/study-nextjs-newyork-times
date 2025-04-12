@@ -1,0 +1,14 @@
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: 12px;
+}
+.section {
+  margin-top: 36px;
+
+  .category_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 8px;
+  }
+}
