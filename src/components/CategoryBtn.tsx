@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import styles from "@/src/styles/category.module.scss"
+import styles from "@/src/styles/category-btn.module.scss"
 
 export default function CategoryBtn({ encoded, name }: IProps) {
   return (

@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   sassOptions: {
     includePaths: [path.join(__dirname, "src/styles")],
-    prependData: `@import "src/styles/_mixins.scss";`, // prependData 옵션 추가
+    prependData: `@import "src/styles/_mixins.scss";`,
   },
 };
 
