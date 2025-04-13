@@ -1,8 +1,9 @@
 import styles from "@/src/styles/page-home.module.scss";
 import { getCategories } from "@/src/utils/api";
 import CategoryBtn from "@/src/components/CategoryBtn";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Home",
 };
 
