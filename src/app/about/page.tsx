@@ -1,6 +1,7 @@
 import styles from "@/src/styles/page-about.module.scss";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "About",
 };
 

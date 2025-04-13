@@ -1,13 +1,12 @@
 "use client";
 import styles from "@/src/styles/book.module.scss";
 import fallbackImg from "@/public/Image-not-found.png";
-import Image from 'next/image'
 
 export default function Book({ title, image, author, url }: IProps) {
   return (
     <div className={styles.book}>
       <div>
-        <Image
+        <img
           className={styles.img}
           src={`${image}`}
           alt={title}
